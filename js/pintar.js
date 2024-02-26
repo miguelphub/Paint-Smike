@@ -4,6 +4,7 @@ const btnReducir = document.getElementById('btnMenos');
 const sizeEl = document.getElementById('size');
 const colorEl = document.getElementById('color');
 const limpiarEl = document.getElementById('limpiar');
+const borrarEl = document.getElementById('borrar');
 
 const contexto = canvas.getContext('2d');
 let size = 1;
