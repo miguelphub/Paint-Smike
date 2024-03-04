@@ -6,43 +6,34 @@
     <title>Mi Aplicacion Movil</title>
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
+<script src="https://kit.fontawesome.com/28e5fa47e4.js" crossorigin="anonymous"></script>
+<title>Document</title>
 </head>
 <body>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <br><br><br><br><br><br><br><br><br><br><br><br>
-    <header><h1>Mi APP 🦕👻</h1></header>
-    <canvas id="canvas" width="400" height="400" ></canvas>
-    
-    <div class="toolbox" >
-        <button id="btnMenos">-</button>
-        <span id="size">1</span>
-        <button id="btnMas">+</button>
-        <input type="color" id="color">
-        <button id="borrar">↖️</button> 
-        <button id="limpiar">x</button> 
 
 
-    </div>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> 
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
- 
+<svg id="svg">
 
-    <footer>
-        <div class="footer-content">
-            <h3>𝓢𝓜𝓘𝓚𝓔</h3>
-            <p>El futuro es hoy oieste viejo pero 
-                te terminan baneando ohh mi lente de contacto...</p>
-            <ul class="socials">
-                <li><a href="https://www.facebook.com/miguel.sambrano.902604?mibextid=ZbWKwL"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="https://twitter.com/Miguel_Phub"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="https://www.instagram.com/miguelnmms?igsh=MTc1a2dkNjl2ejIyag=="><i class="fa fa-instagram"></i></a></li>
+<div class="art">
+    <canvas id="canvas" width="375" height="375"></canvas>
+</div>
 
-            </ul>
-        </div>
-    </footer>
+<div class="toolbox">
+    <button id="btnMenos">-</button>
+    <span id="size">1</span>
+    <button id="btnMas">+</button>
+    <input type="color" id="color">
+    <button  id="borra">
+        <span><i class="fa fa-eraser"></i></span>
+    </button>
+    <button  id="llenar">
+        <span><i class="fa fa-fill-drip"></i></span>
+   </button>
+    <button id="limpiar">X</button>
+</div>  
+
+</svg>
+
 
     <script src="js/pintar.js"></script>
 </body>

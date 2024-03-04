@@ -1,15 +1,101 @@
+
+
+//-------------------------------------------------------------------------------------------
+const svg = document.getElementById('svg')
+const squareSize = 16
+const colors = [
+	'#ff0000',
+	'#00ff00',
+	'#0000ff',
+	'#ffff00',
+	'#ff00ff',
+	'#00ffff',
+	'#ff8000',
+	'#8000ff',
+	'#00ff80',
+	'#ff0080',
+	'#0080ff',
+	'#ff0080',
+	'#80ff00',
+	'#ff8000',
+	'#8000ff',
+	'#ffcc00',
+	'#ff6666',
+	'#3399ff',
+	'#cc33ff',
+	'#99ffcc',
+	'#ff3366',
+	'#66ff33',
+	'#ff99cc',
+	'#66ccff',
+	'#ff6600',
+	
+
+]
+
+const setup = () => {
+	let squareSmash
+	window.clearInterval(squareSmash)
+	svg.innerHTML = ''
+	const windowWidth = window.innerWidth
+	const windowHeight = window.innerHeight
+	const squaresInX = Math.floor((windowWidth / squareSize) + 1)
+	const squaresInY = Math.floor((windowHeight / squareSize) + 1)
+	svg.setAttribute('viewBox', `0 0 ${windowWidth} ${windowHeight}`)
+
+	
+	const createRandomSquare = () => {
+		const fillStyle = colors[Math.floor(Math.random() * colors.length)]
+		const svgns = "http://www.w3.org/2000/svg";
+		const parentSVG = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+		const rect = document.createElementNS(svgns, 'rect');
+		const randomCol = Math.floor(Math.random() * squaresInX)
+		const randomRow = Math.floor(Math.random() * squaresInY)
+		const sizeRoll = Math.floor(Math.random() * 100)
+		let sizeMultiplier = 1
+		if (sizeRoll > 89) sizeMultiplier = 2
+		if (sizeRoll > 96) sizeMultiplier = 3
+		rect.setAttribute('height', squareSize * sizeMultiplier)
+		rect.setAttribute('width', squareSize * sizeMultiplier)
+		rect.setAttribute('x', '100%')
+		rect.setAttribute('y', '100%')
+		rect.setAttribute('fill', fillStyle)
+		parentSVG.setAttribute('height', squareSize * sizeMultiplier)
+		parentSVG.setAttribute('width', squareSize * sizeMultiplier)
+		parentSVG.setAttribute('viewBox', `0 0 ${squareSize * sizeMultiplier} ${squareSize * sizeMultiplier}`)
+		parentSVG.setAttribute('x', randomCol * squareSize)
+		parentSVG.setAttribute('y', randomRow * squareSize)
+		rect.style.animationName = `fade_in_out`
+		rect.style.animationDuration = `${Math.floor((Math.random() * 10000) + 5000)}ms`
+		rect.style.animationDelay = `${Math.floor((Math.random() * 10000) - 5000)}ms`
+		parentSVG.appendChild(rect)
+		svg.appendChild(parentSVG)
+	}
+
+	for (let i = 0; i < (squaresInY * squaresInX / 7); i++) {
+		createRandomSquare()
+	}
+}
+
+setup()
+
+window.addEventListener('resize', setup)
+
+//----------------------------------------------------------------------
+
 const canvas = document.getElementById('canvas');
 const btnIncrementar = document.getElementById('btnMas');
 const btnReducir = document.getElementById('btnMenos');
 const sizeEl = document.getElementById('size');
-const colorEl = document.getElementById('color');
+const colorEl = document.getElementById('color')
+const llenarEl = document.getElementById('llenar');
 const limpiarEl = document.getElementById('limpiar');
-const borrarEl = document.getElementById('borrar');
 
 const contexto = canvas.getContext('2d');
+
 let size = 1;
 let EsPresionado = false;
-colorEl.value = '#000000'; // Establece un valor inicial para el color (negro)
+colorEl.value = '#000000'; 
 let color = colorEl.value;
 let x;
 let y;
@@ -53,18 +139,15 @@ canvas.addEventListener('mousemove', (e) => {
     }
 });
 
-// Escucha el evento de cambio de color
-colorEl.addEventListener('input', (e) => {
-    color = e.target.value;
-});
 function ActualizarTEnPantalla()
 {
     sizeEl.innerText = size;
 }
-btnIncrementar.addEventListener('click', ()=> {
-    size += 1
 
-    if(size > 50 ) 
+btnIncrementar.addEventListener('click', ()=> {
+    size += 1 //para sumarle de 5 en 5
+
+    if(size > 50 ) //mayor a 50 para que el cursor nose haga demasiado grande 
     {
         size = 50
     }
@@ -73,18 +156,39 @@ btnIncrementar.addEventListener('click', ()=> {
 })
 
 btnReducir.addEventListener('click', ()=> {
-    size -= 1 
+    size -= 1 //para sumarle de 5 en 5
 
-    if(size < 1 ) 
+    if(size < 1 ) //menor a 10 para que no baje mas 
     {
         size = 1
     }
 
     ActualizarTEnPantalla()
 })
-colorEl.addEventListener('change', (e) => color = e.target.value) 
-limpiarEl.addEventListener('click', () => contexto.clearRect(0,0, canvas.width, canvas.height)) 
 
+colorEl.addEventListener('change', (e) => color = e.target.value) //para cambiar de color 
+
+
+const btnEraser = document.getElementById('borra');
+let esBorradorActivado = false;
+
+btnEraser.addEventListener('click', () => {
+    esBorradorActivado = !esBorradorActivado;
+    if (esBorradorActivado) {
+        color = 'white'; // Establecer el color a blanco para el borrador
+        size = 10; // Establecer un tamaño de borrador inicial
+    } else {
+        color = colorEl.value; // Restaurar el color seleccionado por el usuario
+        size = parseInt(sizeEl.innerText); // Restaurar el tamaño seleccionado por el usuario
+    }
+});
+
+llenarEl.addEventListener('click', () => {
+    contexto.fillStyle = color; // Establecer el color seleccionado
+    contexto.fillRect(0, 0, canvas.width, canvas.height); // Dibujar un rectángulo del tamaño del canvas
+});
+
+limpiarEl.addEventListener('click', () => contexto.clearRect(0,0, canvas.width, canvas.height)) //para borrar lo hecho en las canvas
 
 
 //--------------------------------------------------------------------------------
