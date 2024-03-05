@@ -154,7 +154,7 @@ btnEraser.addEventListener('click', () => {
     esBorradorActivado = !esBorradorActivado;
     if (esBorradorActivado) {
         color = 'white'; // Establecer el color a blanco para el borrador
-        size = 10; // Establecer un tamaño de borrador inicial
+        size = 1; // Establecer un tamaño de borrador inicial
     } else {
         color = colorEl.value; // Restaurar el color seleccionado por el usuario
         size = parseInt(sizeEl.innerText); // Restaurar el tamaño seleccionado por el usuario
