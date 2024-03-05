@@ -4,49 +4,44 @@ body, html {
 	margin: 0;
 }
 
- body
- {
+body {
 	background-color: rgb(255, 255, 255);
- 	display: flex;
- 	flex-direction: column;
- 	align-items: center;
- }
- 
- header {
-    background-color: rgb(27, 27, 27);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+header {
+    background-color: #090430;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-family: 'Lumanosimo', cursive;
     width: 100%;
-    padding: 10px 0; /* Agregar un poco de espacio entre el contenido y el borde */
-    position: relative; /* Fijar el header en la parte superior */
-    top: 0; /* Posicionar el header en la parte superior */
-    left: 0;
-    z-index: 2; /* Asegurarse de que esté por encima del contenido */
+    z-index: 2;
 }
 
 .menu {
-    width: 90%; /* Reducir el ancho del menú */
-    margin: 0 auto; /* Centrar el menú */
+    width: 100%;
+    margin: 0 auto;
 }
 
 nav {
     float: right;
-    margin: 0; /* Eliminar el margen superior para un mejor ajuste */
-}
-
-nav ul {
-    padding: 0; /* Eliminar el relleno en la lista de navegación */
+    margin: 8px;
 }
 
 nav ul li {
     list-style: none;
-    display: inline-block; /* Cambiar a inline-block para que los elementos se ajusten mejor */
-    margin: 0 10px; /* Ajustar el espacio entre elementos */
+    position: relative;
+    float: left;
+    margin: 15px;
 }
 
 nav ul li a {
     text-decoration: none;
     color: red;
     font-weight: bold;
-    padding: 5px 10px; /* Agregar un poco de espacio alrededor del texto del enlace */
 }
 
 nav ul li::before {
@@ -64,7 +59,6 @@ nav ul li:hover::before {
     width: 100%;
 }
 
- 
 #svg {
 	width: 100%;
 	height: 100%;
@@ -93,7 +87,6 @@ svg path {
 	transform-box: fill-box;
 }
 
-
 @keyframes fade_in_out {
 	0% {
 		opacity: 0%;
@@ -112,22 +105,19 @@ svg path {
 	100% { opacity 1; }
 }
 
-
-
 /*----------------------------------------------------------------------------------------------------*/
-.art
-{
+.art {
     position: relative;
 	z-index: 1;
 	top: -645px;
 }
-canvas 
-{
+
+canvas {
     background-color: #fff;
     border: 5px solid rgb(0, 0, 0);
 }
-.toolbox 
-{
+
+.toolbox {
 	background-color: rgb(61, 55, 255);
 	border: 5px solid  rgb(0, 0, 0);
 	display: flex;
@@ -171,59 +161,56 @@ footer {
     margin-top: 222px; /* Ajusta este valor según lo necesites */
 }
 
-footer h1
-{
+footer h1 {
     color: aqua;
     font-family: 'Pixelify Sans', cursive;
 }
-footer p
-{
+
+footer p {
     font-family: 'Pixelify Sans', cursive;
     color: #ff0000;
 }
-.socials
-{
+
+.socials {
     list-style: none;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 1rem 0 3rem 0;
 }
-.socials li
-{
+
+.socials li {
     margin: 0 10px;
 }
-.socials a
-{
+
+.socials a {
     text-decoration: none;
     color: #1e00ff;
 }
-.socials a i
-{
+
+.socials a i {
     font-size: 1.1rem;
     transition: color .4s ease;
-
 }
-.socials a:hover i
-{
+
+.socials a:hover i {
     color: rgb(122, 0, 0);
 }
 
-.footer-bottom
-{
+.footer-bottom {
     background: red;
     width: 100vw;
     padding: 20px 0;
     text-align: center;
 }
-.footer-bottom p
-{
+
+.footer-bottom p {
     font-size: 14px;
     word-spacing: 2px;
     text-transform: capitalize;
 }
-.footer-bottom span
-{
+
+.footer-bottom span {
     text-transform: uppercase;
     opacity: .4;
     font-weight: 200;
