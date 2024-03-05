@@ -84,16 +84,13 @@ window.addEventListener('resize', setup)
 //----------------------------------------------------------------------
 
 const canvas = document.getElementById('canvas');
-const btnIncrementar = document.getElementById('btnMas');
-const btnReducir = document.getElementById('btnMenos');
 const sizeEl = document.getElementById('size');
-const colorEl = document.getElementById('color')
-const llenarEl = document.getElementById('llenar');
-const limpiarEl = document.getElementById('limpiar');
+const colorEl = document.getElementById('color');
+const penSizeInput = document.getElementById('penSize');
 
 const contexto = canvas.getContext('2d');
 
-let size = 1;
+let size = parseInt(sizeEl.innerText);
 let EsPresionado = false;
 colorEl.value = '#000000'; 
 let color = colorEl.value;
@@ -139,35 +136,16 @@ canvas.addEventListener('mousemove', (e) => {
     }
 });
 
-function ActualizarTEnPantalla()
-{
+function ActualizarTEnPantalla() {
     sizeEl.innerText = size;
 }
 
-btnIncrementar.addEventListener('click', ()=> {
-    size += 1 //para sumarle de 5 en 5
+penSizeInput.addEventListener('input', () => {
+    size = parseInt(penSizeInput.value);
+    ActualizarTEnPantalla();
+});
 
-    if(size > 50 ) //mayor a 50 para que el cursor nose haga demasiado grande 
-    {
-        size = 50
-    }
-
-    ActualizarTEnPantalla()
-})
-
-btnReducir.addEventListener('click', ()=> {
-    size -= 1 //para sumarle de 5 en 5
-
-    if(size < 1 ) //menor a 10 para que no baje mas 
-    {
-        size = 1
-    }
-
-    ActualizarTEnPantalla()
-})
-
-colorEl.addEventListener('change', (e) => color = e.target.value) //para cambiar de color 
-
+colorEl.addEventListener('change', (e) => color = e.target.value); //para cambiar de color 
 
 const btnEraser = document.getElementById('borra');
 let esBorradorActivado = false;
@@ -183,12 +161,14 @@ btnEraser.addEventListener('click', () => {
     }
 });
 
+const llenarEl = document.getElementById('llenar');
 llenarEl.addEventListener('click', () => {
     contexto.fillStyle = color; // Establecer el color seleccionado
     contexto.fillRect(0, 0, canvas.width, canvas.height); // Dibujar un rectángulo del tamaño del canvas
 });
 
-limpiarEl.addEventListener('click', () => contexto.clearRect(0,0, canvas.width, canvas.height)) //para borrar lo hecho en las canvas
+const limpiarEl = document.getElementById('limpiar');
+limpiarEl.addEventListener('click', () => contexto.clearRect(0,0, canvas.width, canvas.height)); //para borrar lo hecho en las canvas
 
 
 //--------------------------------------------------------------------------------

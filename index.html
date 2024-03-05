@@ -7,35 +7,31 @@
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://kit.fontawesome.com/28e5fa47e4.js" crossorigin="anonymous"></script>
-<title>Document</title>
+<link rel="shortcut icon" href="https://i.pinimg.com/originals/a2/58/72/a25872673217f0c1282cf989d231273f.png" type="image/x-icon">
+<title>paint</title>
 </head>
 <body>
+    <svg id="svg">
+        <div class="art">
+            <canvas id="canvas" width="375" height="375"></canvas>
+        </div>
+        <div class="toolbox">
+            <input type="range" id="penSize" step="2" min="2" max="50" value="1">
 
+            <span id="size">1</span>
 
-<svg id="svg">
-
-<div class="art">
-    <canvas id="canvas" width="375" height="375"></canvas>
-</div>
-
-<div class="toolbox">
-    <button id="btnMenos">-</button>
-    <span id="size">1</span>
-    <button id="btnMas">+</button>
-    <input type="color" id="color">
-    <button  id="borra">
-        <span><i class="fa fa-eraser"></i></span>
-    </button>
-    <button  id="llenar">
-        <span><i class="fa fa-fill-drip"></i></span>
-   </button>
-    <button id="limpiar">X</button>
-</div>  
-
-</svg>
-
-
+            <input type="color" id="color">
+            <button id="borra">
+                <span><i class="fa fa-eraser"></i></span>
+            </button>
+            <button id="llenar">
+                <span><i class="fa fa-fill-drip"></i></span>
+            </button>
+            <button id="limpiar">X</button>
+        </div>
+    </svg>
     <script src="js/pintar.js"></script>
 </body>
+
 
 </html>

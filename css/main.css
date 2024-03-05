@@ -100,10 +100,11 @@ canvas
     width: 50px;
     margin: 0.25rem;
     padding: 0.50rem;
-    cursor: pointer;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 .toolbox > *:last-child {
     margin-left: auto;
 }
+
