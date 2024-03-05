@@ -115,6 +115,7 @@ svg path {
 canvas {
     background-color: #fff;
     border: 5px solid rgb(0, 0, 0);
+    cursor: url("https://raw.githubusercontent.com/WebDevSimplified/Mix-Or-Match/master/Assets/Cursors/GhostHover.cur"), auto;
 }
 
 .toolbox {
